@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MenegerPassword.SQLite;
 
 namespace MenegerPassword.Pages
 {
@@ -22,14 +23,24 @@ namespace MenegerPassword.Pages
             await Navigation.PushAsync(new AddTypePage());
         }
 
-        private void OtmenaBtn_Clicked(object sender, EventArgs e)
+        private async void OtmenaBtn_Clicked(object sender, EventArgs e)
         {
-
+            await this.Navigation.PopAsync();
         }
 
-        private void SaveBtn_Clicked(object sender, EventArgs e)
+        private async void SaveBtn_Clicked(object sender, EventArgs e)
         {
-
+            //var account = (Account)BindingContext;
+            //if (!String.IsNullOrEmpty(account.Login))
+            //    App.Repos.SaveAccount(account);
+            //await this.Navigation.PopAsync();
+            Account account = new Account();
+            account.Login = LoginEntry.Text.Trim();
+            account.Password = PasswordEntry.Text.Trim();
+            account.Url = UrlEntry.Text.Trim();
+            account.Type = Type.SelectedItem.ToString();
+            App.Repos.SaveAccount(account);
+            Navigation.PopAsync();
         }
     }
 }

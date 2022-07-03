@@ -15,11 +15,17 @@ namespace MenegerPassword.Pages
         public ListPasswordPage()
         {
             InitializeComponent();
+           
+        }
+        protected override void OnAppearing()
+        {
+            AccountLv.ItemsSource = App.Repos.GetAccounts();
+            base.OnAppearing();
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new AddPasswordPage());
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

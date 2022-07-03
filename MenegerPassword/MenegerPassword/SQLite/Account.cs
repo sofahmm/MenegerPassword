@@ -11,8 +11,8 @@ namespace MenegerPassword.SQLite
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int ID { get; set; }
         public string Login { get; set; }
-        public int Password { get; set; }
-        public Uri Url { get; set; }
-        public Type IdType { get; set; }
+        public string Password { get; set; }
+        public string Url { get; set; }
+        public string Type { get; set; }
     }
 }

@@ -13,13 +13,17 @@ namespace MenegerPassword
     {
         static Repos repos;
 
-        public static Repos Repos()
+        public static Repos Repos
         {
-            if (repos == null)
+            get
             {
-                repos = new Repos(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ProjecttsDatabase.db3"));
+                if (repos == null)
+                {
+                    repos = new Repos(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ProjecttsDatabase.db3"));
+                }
+                return repos;
             }
-            return repos;
+
         }
         public App()
         {
