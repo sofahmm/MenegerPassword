@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MenegerPassword.Pages.AddTypePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Entry Placeholder="Name"
+                   HeightRequest="70"
+                   WidthRequest="340"
+                   x:Name="NameTypeEntry"/>
+            </StackLayout>
+            <StackLayout>
+                <Button Text="Save"
+                        x:Name="SaveBtn"
+                        Clicked="SaveBtn_Clicked"
+                        HeightRequest="70"
+                        WidthRequest="340"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
